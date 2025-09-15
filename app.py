@@ -125,15 +125,15 @@ class WellnessAssistant:
         """Load trained models and components"""
         try:
             model_files = {
-                'heart_disease': 'models/heart_disease_model.pkl',
-                'diabetes': 'models/diabetes_model.pkl',
-                'hypertension': 'models/hypertension_model.pkl'
+                'heart_disease': 'heart_disease_model.pkl',
+                'diabetes': 'diabetes_model.pkl',
+                'hypertension': 'hypertension_model.pkl'
             }
             
             scaler_files = {
-                'heart_disease': 'models/heart_disease_scaler.pkl',
-                'diabetes': 'models/diabetes_scaler.pkl',
-                'hypertension': 'models/hypertension_scaler.pkl'
+                'heart_disease': 'heart_disease_scaler.pkl',
+                'diabetes': 'diabetes_scaler.pkl',
+                'hypertension': 'hypertension_scaler.pkl'
             }
             
             # Load models
@@ -148,11 +148,11 @@ class WellnessAssistant:
                     self.scalers[condition] = joblib.load(file_path)
             
             # Load feature names and performance metrics
-            if os.path.exists('models/feature_names.pkl'):
-                self.feature_names = joblib.load('models/feature_names.pkl')
+            if os.path.exists('feature_names.pkl'):
+                self.feature_names = joblib.load('feature_names.pkl')
             
-            if os.path.exists('models/performance_metrics.pkl'):
-                self.performance_metrics = joblib.load('models/performance_metrics.pkl')
+            if os.path.exists('performance_metrics.pkl'):
+                self.performance_metrics = joblib.load('performance_metrics.pkl')
             
             if not self.models:
                 st.warning("⚠️ No models found. Using demo mode.")
@@ -788,3 +788,4 @@ def display_welcome():
 
 if __name__ == "__main__":
     main()
+
